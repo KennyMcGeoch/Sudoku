@@ -182,7 +182,8 @@ const particlesLoaded = useCallback(async container => {
     await console.log(container);
 }, []);
   return (
-  <div><h1 align="center">Sudoku Solver</h1>
+  <div>
+    <div><h1 align="center">Sudoku Solver</h1></div>
   <Particles id="tsparticles" params={particleOptions} init={particlesInit} loaded={particlesLoaded} />
     <div className="App center">
       <table>

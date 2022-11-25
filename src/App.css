@@ -58,6 +58,14 @@ input[type=number] {
   transform: translate(-50%, -50%);
 }
 
+#tsparticles {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  z-index: 0;
+}
+
 h1{
   z-index: 1;
+  position: relative;
 }
