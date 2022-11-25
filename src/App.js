@@ -136,6 +136,7 @@ function solve(){
       document.querySelector(`[name="c${cell++}"]`).value = solution[i][j]
     }
   }
+  solution = [[],[],[],[],[],[],[],[],[]]
 }
 
 function validNum(num){
