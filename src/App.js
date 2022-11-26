@@ -287,7 +287,7 @@ const particlesLoaded = useCallback(async container => {
           <th><input type="text" name="c81" size="1" maxLength="1"></input></th>
         </tr>
       </table>
-      <button onClick={solve}>Solve Sudoku</button><button onClick={clear}>Clear Board</button>
+      <button onClick={solve}>Solve Sudoku</button> <button onClick={clear}>Clear Board</button>
     </div>
   </div>
   );
