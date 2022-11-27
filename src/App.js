@@ -2,6 +2,8 @@ import './App.css';
 import { useCallback } from "react";
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
+import isValidSudoku from './ValidSudoku';
+import solveSudoku from './SudokuSolver'
 
 const particleOptions = {
   
@@ -341,79 +343,6 @@ function validNum(num){
   else solution[arrRow].push(".")
 }
 
-function solveSudoku(board) {
-  const n = board.length;
-  recurse(board, n);
-  return board
-}
-
-function recurse(board, n) {
-  for (let row = 0; row < n; row++) {
-    for (let col = 0; col < n; col++) {
-      if (board[row][col] === '.') {
-        const map = {
-          '1': true,
-          '2': true,
-          '3': true,
-          '4': true,
-          '5': true,
-          '6': true,
-          '7': true,
-          '8': true,
-          '9': true,
-        };
-        for(let i=0; i<9; i++) {
-          map[board[i][col]] = false;
-          map[board[row][i]] = false;
-        }
-        const sr = Math.floor(row/3) * 3;
-        const sc = Math.floor(col/3) * 3;
-        for(let k=sr; k<sr+3; k++) {
-          for(let l=sc; l<sc+3; l++) {
-            map[board[k][l]] = false;
-          }
-        }
-        const possibles = Object.entries(map).filter(([k, v]) => v).map(([k, v]) => k);
-        for(let j=0; j<possibles.length; j++) {
-          board[row][col] = possibles[j];
-          if (recurse(board, n)) return true;
-          else board[row][col] = '.';
-        }
-        return false;
-      }
-    }
-  }
-  return true;
-}
-
-var isValidSudoku = function(board) {
-  for (let i = 0; i < 9; i++) {
-    let row = new Set(),
-        col = new Set(),
-        box = new Set();
-
-    for (let j = 0; j < 9; j++) {
-      let _row = board[i][j];
-      let _col = board[j][i];
-      let _box = board[3*Math.floor(i/3)+Math.floor(j/3)][3*(i%3)+(j%3)]
-      
-      if (_row != '.') {
-        if (row.has(_row)) return false;
-        row.add(_row);
-      }
-      if (_col != '.') {
-        if (col.has(_col)) return false;
-        col.add(_col);
-      }
-      
-      if (_box != '.') {
-        if (box.has(_box)) return false;
-        box.add(_box);
-      } 
-    }
-  }
-  return true
-};
 
 
 
