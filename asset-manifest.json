@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/KennyMcGeoch/Sudoku/static/css/main.9031d11f.css",
-    "main.js": "/KennyMcGeoch/Sudoku/static/js/main.3e3c6814.js",
-    "static/js/787.0b13cb1a.chunk.js": "/KennyMcGeoch/Sudoku/static/js/787.0b13cb1a.chunk.js",
-    "index.html": "/KennyMcGeoch/Sudoku/index.html",
-    "main.9031d11f.css.map": "/KennyMcGeoch/Sudoku/static/css/main.9031d11f.css.map",
-    "main.3e3c6814.js.map": "/KennyMcGeoch/Sudoku/static/js/main.3e3c6814.js.map",
-    "787.0b13cb1a.chunk.js.map": "/KennyMcGeoch/Sudoku/static/js/787.0b13cb1a.chunk.js.map"
+    "main.css": "/Sudoku/static/css/main.9031d11f.css",
+    "main.js": "/Sudoku/static/js/main.9388062f.js",
+    "static/js/787.0b13cb1a.chunk.js": "/Sudoku/static/js/787.0b13cb1a.chunk.js",
+    "index.html": "/Sudoku/index.html",
+    "main.9031d11f.css.map": "/Sudoku/static/css/main.9031d11f.css.map",
+    "main.9388062f.js.map": "/Sudoku/static/js/main.9388062f.js.map",
+    "787.0b13cb1a.chunk.js.map": "/Sudoku/static/js/787.0b13cb1a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9031d11f.css",
-    "static/js/main.3e3c6814.js"
+    "static/js/main.9388062f.js"
   ]
 }
