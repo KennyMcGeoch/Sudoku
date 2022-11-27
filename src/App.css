@@ -65,7 +65,7 @@ input[type=number] {
   z-index: 0;
 }
 
-h1{
+h1, label{
   z-index: 1;
   position: relative;
 }

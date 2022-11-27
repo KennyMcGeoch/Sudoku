@@ -288,6 +288,7 @@ const particlesLoaded = useCallback(async container => {
         </tr>
       </table>
       <button onClick={solve}>Solve Sudoku</button> <button onClick={clear}>Clear Board</button>
+      <h4 name="msg"></h4>
     </div>
   </div>
   );
@@ -302,25 +303,35 @@ function clear(){
       document.querySelector(`[name="c${cell++}"]`).value = ""
     }
   }
+  document.querySelector('[name="msg"]').innerHTML = ""
 }
 
 function solve(){
-  
+  solution = [[],[],[],[],[],[],[],[],[]]
   for (let k=1; k<82; k++){
     let randomVar = document.querySelector(`[name="c${k}"]`).value
     validNum(randomVar)
     if (k%9 === 0)arrRow++
   }
   arrRow = 0
+  if (isValidSudoku(solution) === false){
+    document.querySelector('[name="msg"]').innerHTML = "This is an invalid starting position"
+    return
+  }
   solution = solveSudoku(solution)
-  console.log(solution)
+  for (let i=0; i<9; i++){
+    if (solution[i].includes(".")){
+      document.querySelector('[name="msg"]').innerHTML = "No possible Sudoku solutions exist for the given board"
+      return
+    }
+  }
+  document.querySelector('[name="msg"]').innerHTML = "Sudoku successfully solved"
   let cell = 1
   for (let i=0; i<9;i++){
     for (let j=0; j<9; j++){
       document.querySelector(`[name="c${cell++}"]`).value = solution[i][j]
     }
   }
-  solution = [[],[],[],[],[],[],[],[],[]]
 }
 
 function validNum(num){
@@ -374,6 +385,35 @@ function recurse(board, n) {
   }
   return true;
 }
+
+var isValidSudoku = function(board) {
+  for (let i = 0; i < 9; i++) {
+    let row = new Set(),
+        col = new Set(),
+        box = new Set();
+
+    for (let j = 0; j < 9; j++) {
+      let _row = board[i][j];
+      let _col = board[j][i];
+      let _box = board[3*Math.floor(i/3)+Math.floor(j/3)][3*(i%3)+(j%3)]
+      
+      if (_row != '.') {
+        if (row.has(_row)) return false;
+        row.add(_row);
+      }
+      if (_col != '.') {
+        if (col.has(_col)) return false;
+        col.add(_col);
+      }
+      
+      if (_box != '.') {
+        if (box.has(_box)) return false;
+        box.add(_box);
+      } 
+    }
+  }
+  return true
+};
 
 
 
